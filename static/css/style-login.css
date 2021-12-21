@@ -1,0 +1,48 @@
+body {
+    background: url('/static/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form {
+    margin-top: 27%;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        height: 710px;
+    }
+    form {
+        margin-top: 150px;
+    }
+}
+
+input {
+    border-radius: 8px;
+    color: rgb(255, 255, 255) !important;
+}
+
+.input-field label {
+    font-size: x-large;
+    color: white !important;
+}
+
+li {
+    color: white;
+    font-size: medium;
+}
+
+form label {
+    font-size: larger;
+    color: white;
+}
+
+form label:hover {
+    font-size: larger;
+    color: white;
+}
+
+input:focus {
+    border-bottom: 1px solid rgb(67, 116, 161) !important;
+    box-shadow: 0 1px 0 0 rgb(67, 116, 161) !important
+}

@@ -1,0 +1,50 @@
+{% extends 'index.html' %} {% block main %}
+<div class="container">
+    <div class="row">
+
+        {% for client in object_list %}
+        <div class="col s6">
+            <div class="card" style="text-align: center;">
+                Nome: {{ client.name }}
+                <br> Telefone: {{ client.phone }}
+                <br> E-mail {{ client.email }}
+                <br style="margin-top: 8px;">
+                <a href="{% url 'update_client' client.id %}">
+                    <i class="small material-icons">create</i>
+                </a>
+
+                <a style="margin-left: 12px;" href="{% url 'delete_client' client.id %}">
+                    <i class="small material-icons">delete</i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="active">
+            <a href="?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a>
+        </li>
+        {% else %}
+        <li>
+            <a class="disabled" href="#"><i class="material-icons">chevron_left</i></a>
+        </li>
+        {% endif %} {% for object in page_obj.paginator.page_range %}
+        <li class="waves-effect">
+            <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+        </li>
+        {% endfor %}{% if page_obj.has_next %}
+        <li class="waves-effect">
+            <a href="?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a>
+        </li>
+        {% else %}
+        <li class="waves-effect">
+            <a href="#"><i class="material-icons">chevron_right</i></a>
+        </li>
+        {% endif %}
+    </ul>
+
+</div>
+{% endblock %}

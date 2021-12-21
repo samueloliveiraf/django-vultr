@@ -1,0 +1,15 @@
+{% extends 'index.html' %} {% block title %} Cadastro produto {% endblock %} {% block main %}
+<div class="container">
+    <div class="row">
+        <form enctype="multipart/form-data" class="col s12" method="POST"> {% csrf_token %} {{ form }}
+
+            <br>
+            <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Cadastrar
+                <i style="color: white;" class="material-icons right">send</i>
+            </button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

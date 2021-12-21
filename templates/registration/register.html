@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+
+    <title> CRUD's Cadastra-se </title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{% static 'css/style-login.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <form style="margin-top: 10px;" action="{% url 'signup' %}" class="col s12" method="POST"> {% csrf_token %}{% for field in form %}
+                    <p>
+                        {{ field.label_tag }}<br> {{ field }} {% if field.help_text %}
+                        <small style="color: rgb(255, 255, 255)">{{ field.help_text }}</small> {% endif %} {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+
+                    <button style="margin-top: 12px; margin-bottom: 40px; " class="btn waves-effect indigo darken-4 " type="submit " name="action ">Cadastar
+                        <i style="color: white; " class="material-icons right ">send</i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+
+</body>
+
+<style>
+    @media only screen and (max-width: 600px) {
+        body {
+            height: 100%;
+        }
+    }
+</style>
+
+</html>

@@ -1,0 +1,19 @@
+{% extends 'index.html' %} {% block title %} Venda Produto {% endblock %} {% block main %}
+
+<div class="container">
+    <div class="card" style="text-align: center; color: #2b4c92;">
+        <h5>Venda Realizada! Nº {{ sales.id }}</h5>
+
+        <h5> Quantidade: {{ quantity }} Produto: {{ product.name }} Sucesso!</h5>
+
+        <a href="{% url 'list_sales' %}">
+            <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Ir para Vendas
+                <i style="color: white;" class="material-icons right">equalizer</i>
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

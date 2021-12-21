@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F2F2F2;
+}
+
+.img-home {
+    height: 335px;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.row .area {
+    text-align: center;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.space {
+    margin-right: 22px;
+}
+
+i {
+    color: #2b4c92;
+}
+
+input:focus {
+    border-bottom: 1px solid rgb(67, 116, 161) !important;
+    box-shadow: 0 1px 0 0 rgb(67, 116, 161) !important
+}
+
+label {
+    color: black;
+    font-size: medium;
+}
+
+@media only screen and (max-width: 600px) {
+    .actions {
+        display: block;
+    }
+}
+
+.magin-top {
+    margin-top: 5px;
+}
+
+.pagination>.active {
+    background-color: #F2F2F2 !important;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.size-icon {
+    font-size: 42px;
+}

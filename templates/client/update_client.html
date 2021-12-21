@@ -1,0 +1,14 @@
+{% extends 'index.html' %} {% block main %}
+<div class="container">
+    <div class="row">
+        <form class="col s12" method="POST"> {% csrf_token %} {{ form }}
+
+            <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Salvar
+                <i style="color: white;" class="material-icons right">send</i>
+            </button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

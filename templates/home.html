@@ -1,0 +1,49 @@
+{% extends 'index.html' %} {% block title %} Início {% endblock %} {% block main %}
+<div class="container">
+
+    <div class="row area">
+
+        <div class="col s12 text-center">
+
+            {% if user.company %} {{ company.name }}
+            <a href="{% url 'update_company' user.company.id %}">
+                <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Editar Empresa
+                    <i style="color: white;" class="material-icons right">account_balance</i>
+                </button>
+            </a>
+            {% else %}
+            <a href="{% url 'create_company' %}">
+                <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Cadastre sua empresa
+                    <i style="color: white;" class="material-icons right">account_balance</i>
+                </button>
+            </a>
+            {% endif %}
+
+            <div style="margin-top: 22px;" class="card">
+                <div class="col s12">
+                    <h6 style="font-weight: 600;">Produtos</h6>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <h6>Ver <br> Produtos</h6>
+                        <a href="{% url 'list_products' %}">
+                            <i class="size-icon material-icons">storage</i>
+                        </a>
+                    </div>
+                    <div class="col s6">
+                        <h6>Cadastrar <br> Produtos</h6>
+                        <a href="{% url 'create_product' %}">
+                            <i class="size-icon material-icons">add_circle</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}

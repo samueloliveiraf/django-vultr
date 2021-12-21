@@ -1,0 +1,100 @@
+{% extends 'index.html' %} {% block title %} Lista produtos {% endblock %} {% block main %}
+<div class="container">
+    <div class="row">
+
+        {% for product in object_list %}
+        <div class="col s12">
+            <div class="card" style="text-align: center;">
+                <img height="80" src="{{product.imageURL}}" alt="">
+                <br> Nome: {{ product.name }}
+                <br> Preço: {{ product.price }}
+                <br> Quantidade: {{ product.quantity }}
+                <br> Valor Total: R${{ product.total }}
+
+                <br style="margin-top: 8px;">
+                <a href="{% url 'update_product' product.id %}">
+                    <i class="small material-icons">create</i>
+                </a>
+
+                <a style="margin-left: 12px;" href="{% url 'delete_product' product.id %}">
+                    <i class="small material-icons">delete</i>
+                </a>
+
+
+                {% if product.quantity == 0 %} {% else %}
+                <form action="{% url 'sale_product' product.id %}" method="POST"> {% csrf_token %}
+                    <div>
+                        <input placeholder="Quantidade" type="number" required class="form-control" name="quantity" min="1" />
+                    </div>
+
+                    <div>
+                        <input placeholder="Nome Cliente" type="text" required class="form-control" name="name_client" />
+                    </div>
+
+                    <select required style="margin-top: 8px; margin-bottom: 8px;" name="payment" class="browser-default">
+                      <option value="" disabled selected>Pagamento</option>
+                      <option value="dinheiro">Dinheiro</option>
+                      <option value="cartao-credito">Cartão de crédito</option>
+                      <option value="cartao-debito">Cartão de Débito</option>
+                    </select>
+
+                    <button style=" margin-top: 12px; " class="btn waves-effect indigo darken-4 " type="submit " name="action ">Vender
+                        <i style="color: white; " class="material-icons right ">local_atm</i>
+                    </button>
+
+                </form>
+
+                {% endif %} {% if massage %}
+                <div id="modal1 " class="modal ">
+                    <div class="modal-content ">
+                        <h4>Alert</h4>
+                        <p>You can use this as a alert!</p>
+                    </div>
+                    <div class="modal-footer ">
+                        <a href="#! " class=" modal-action modal-close waves-effect waves-green btn-flat ">OK</a>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script type="text/javascript " src="//code.jquery.com/jquery-2.1.4.js "></script>
+<style type="text/css "></style>
+<link rel="stylesheet " type="text/css " href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css ">
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js "></script>
+
+<ul class="pagination ">
+    {% if page_obj.has_previous %}
+    <li class="active ">
+        <a href="?page={{ page_obj.previous_page_number }} "><i class="material-icons ">chevron_left</i></a>
+    </li>
+    {% else %}
+    <li>
+        <a class="disabled " href="# "><i class="material-icons ">chevron_left</i></a>
+    </li>
+    {% endif %} {% for object in page_obj.paginator.page_range %}
+    <li class="waves-effect ">
+        <a href="?page={{ forloop.counter }} ">{{ forloop.counter }}</a>
+    </li>
+    {% endfor %}{% if page_obj.has_next %}
+    <li class="waves-effect ">
+        <a href="?page={{ page_obj.next_page_number }} "><i class="material-icons ">chevron_right</i></a>
+    </li>
+    {% else %}
+    <li class="waves-effect ">
+        <a href="# "><i class="material-icons ">chevron_right</i></a>
+    </li>
+    {% endif %}
+</ul>
+
+<style>
+    .card {
+        border-radius: 12px;
+    }
+</style>
+
+{% endblock %}

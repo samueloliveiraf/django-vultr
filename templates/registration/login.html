@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+
+    <title> {% block title %} CRUD's Entrar {% endblock %}</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{% static 'css/style-login.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+
+                <form class="col s12" method="POST"> {% csrf_token %} {{ form }}
+
+                    <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Entrar
+                        <i style="color: white;" class="material-icons right">send</i>
+                    </button>
+
+                </form>
+
+                <a style="margin-left: 11px;" href="{% url 'signup' %}">
+                    <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Cadastrar-se
+                        <i style="color: white;" class="material-icons right">person_add</i>
+                    </button>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+
+</body>
+
+<style>
+
+</style>
+
+</html>

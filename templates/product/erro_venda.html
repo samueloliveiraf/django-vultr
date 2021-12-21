@@ -1,0 +1,12 @@
+{% extends 'index.html' %} {% block title %} Erro Venda Produto {% endblock %} {% block main %}
+
+<div class="container">
+    <div class="card" style="text-align: center; color: #2b4c92;">
+        {% if message %}
+        <h5 style="color: rgb(199, 29, 29);">{{ message }}</h5>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

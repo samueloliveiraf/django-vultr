@@ -1,0 +1,53 @@
+{% extends 'index.html' %} {% block title %} Lista de produtos {% endblock %} {% block main %}
+
+<div class="container">
+
+    <form method="GET" class="form-date">
+        <div class="form-group">
+            <label for="start_data"> 
+        <strong>De:</strong> 
+        </label>
+            <input class="form-control" type="date" id="start_data" name="start_data">
+        </div>
+        <div class="form-group">
+            <label for="end_data">
+          <strong>Até:</strong>
+        </label>
+            <input class="form-control" type="date" id="end_data" name="end_data">
+        </div>
+
+        <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Filtrar
+            <i style="color: white;" class="material-icons right">local_atm</i>
+        </button>
+
+    </form>
+
+    <table class="responsive" style="margin-top: 35px; margin-bottom: 55px;">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pagamento</th>
+                <th scope="col">Data da Venda</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Imprimir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales %}
+            <tr>
+                <th scope="row">{{ sale.product.title }}</th>
+                <td>{{ sale.payment }}</td>
+                <td>{{ sale.time }}</td>
+                <td>{{ sale.total_sale }}</td>
+                <td>
+                    <a href="{% url 'pdf' sale.id %}">
+                        <img width="72" height="60" class="image-icon" src="/static/img/print.png" alt="image-print">
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
