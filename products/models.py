@@ -19,16 +19,6 @@ class Product(models.Model):
         
         return total
     
-    
-    @property
-    def imageURL(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        
-        return url
-    
 
 class Sale(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
