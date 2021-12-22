@@ -18,6 +18,16 @@ class Product(models.Model):
         total = self.quantity * self.price
         
         return total
+
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        
+        return url
     
 
 class Sale(models.Model):
