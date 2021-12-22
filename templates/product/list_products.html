@@ -5,7 +5,7 @@
         {% for product in object_list %}
         <div class="col s12">
             <div class="card" style="text-align: center;">
-                <img height="80" src="{{product.image}}" alt="">
+                <img height="80" src="{{product.image.url}}" alt="">
                 <br> Nome: {{ product.name }}
                 <br> Preço: {{ product.price }}
                 <br> Quantidade: {{ product.quantity }}
