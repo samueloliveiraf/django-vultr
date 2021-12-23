@@ -1,15 +1,12 @@
 from django.core.files import storage
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
-
-fs = FileSystemStorage(location='/media/images')
 
 
 class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name='Nome')
     quantity = models.PositiveIntegerField(verbose_name='Quantidade')
-    image = models.ImageField(storage=fs, verbose_name='Imagem')
+    image = models.ImageField(verbose_name='Imagem')
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Preço')
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     
