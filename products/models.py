@@ -23,8 +23,11 @@ class Product(models.Model):
 
     @property
     def imageURL(self):
-        url = self.image.url
-               
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        
         return url
     
 
