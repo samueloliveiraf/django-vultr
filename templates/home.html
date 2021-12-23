@@ -7,13 +7,13 @@
 
             {% if user.company %} {{ company.name }}
             <a href="{% url 'update_company' user.company.id %}">
-                <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Editar Empresa
+                <button style="margin-top: 12px;" class="btn waves-effect blue darken-4" type="submit" name="action">Editar Empresa
                     <i style="color: white;" class="material-icons right">account_balance</i>
                 </button>
             </a>
             {% else %}
             <a href="{% url 'create_company' %}">
-                <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Cadastre sua empresa
+                <button style="margin-top: 12px;" class="btn waves-effect blue darken-4" type="submit" name="action">Cadastre sua empresa
                     <i style="color: white;" class="material-icons right">account_balance</i>
                 </button>
             </a>
