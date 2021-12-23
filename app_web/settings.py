@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-+jg&ol7$z*ab9lp!98!c0#%g6&$g=$f-b&w9u&o#(#ynn+z6uv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
  
-ALLOWED_HOSTS = ['localhost', '155.138.230.147', 'djangoapp-estoque.online']
+ALLOWED_HOSTS = ['localhost', '155.138.230.147', '177.223.53.96', 'djangoapp-estoque.online']
 
 
 # Application definition
