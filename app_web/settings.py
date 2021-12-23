@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+jg&ol7$z*ab9lp!98!c0#%g6&$g=$f-b&w9u&o#(#ynn+z6uv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '155.138.216.125', '155.138.230.147', 'djangoapp-estoque.online']
 
