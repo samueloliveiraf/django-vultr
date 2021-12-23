@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-+jg&ol7$z*ab9lp!98!c0#%g6&$g=$f-b&w9u&o#(#ynn+z6uv
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
+ 
 ALLOWED_HOSTS = ['localhost', '155.138.230.147', 'djangoapp-estoque.online']
 
 
@@ -135,12 +135,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 MEDIA_URL = '/media/'
 
