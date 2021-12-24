@@ -83,7 +83,7 @@
             <tr>
                 <th class="ttu" colspan="3">
                     {% for company in companys %}
-                    <img src="{{ company.image }}" alt="">
+                    <img height="60" style="border-radius: 12px;" src="{{ company.image.url }}" alt="">
                     <b>{{ company.name }}</b> {% endfor %}
                 </th>
             </tr>
