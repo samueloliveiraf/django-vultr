@@ -6,7 +6,6 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 from .models import Product, Sale
-from company.models import Company
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 import datetime
@@ -46,6 +45,7 @@ class CrieteViewProduct(CreateView):
 
 class UpadateViewProduct(UpdateView):
     model = Product
+    template_name = 'product/update_product.html'
     
     fields = [
         'name',
@@ -53,8 +53,6 @@ class UpadateViewProduct(UpdateView):
         'price',
         'image'
     ]
-    
-    template_name = 'product/update_product.html'
     
     
     success_url = reverse_lazy('list_products')
