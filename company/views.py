@@ -8,8 +8,7 @@ class CrieteViewCompany(CreateView):
     model = Company
     
     fields = [
-        'name',
-        'image'
+        'name'
     ]
     
     
@@ -25,8 +24,7 @@ class UpadateViewCompany(UpdateView):
     model = Company
     
     fields = [
-        'name',
-        'image'
+        'name'
     ]
     
     template_name = 'company/create_company.html'
