@@ -44,12 +44,12 @@
                     <p>
                         {{ field.label_tag }}<br> {{ field }} {% if field.help_text %}
                         <small style="color: rgb(255, 255, 255)">{{ field.help_text }}</small> {% endif %} {% for error in field.errors %}
-                        <p style="color: red">{{ error }}</p>
+                        <p style="color: rgb(248, 46, 46)">{{ error }}</p>
                         {% endfor %}
                     </p>
                     {% endfor %}
 
-                    <button style="margin-top: 12px; margin-bottom: 40px; " class="btn waves-effect indigo darken-4" type="submit " name="action ">Cadastar
+                    <button style="margin-top: 12px; margin-bottom: 40px; " class="btn waves-effect indigo darken-4" type="submit " name="action ">Cadastrar
                         <i style="color: white; " class="material-icons right ">send</i>
                     </button>
                 </form>
