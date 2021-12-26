@@ -1,0 +1,25 @@
+{% extends 'index.html' %} {% block title %} Busca Produto {% endblock %} {% block main %}
+
+<div class="container">
+
+    <h5 style="text-align: center; color: rgb(67, 201, 123);">Busca encontrada</h5>
+
+    <div class="row">
+        <br> {% for p in product %}
+        <div class="card">
+            <img height="80" src="{{ p.imageURL }}" alt="">
+            <br> Nome: {{ p.name }}
+            <br> Preço: {{ p.price }}
+            <br> Quantidade: {{ p.quantity }}
+            <br> Valor Total: R${{ p.total }}
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .card {
+        text-align: center;
+    }
+</style>
+{% endfor %} {% endblock %}

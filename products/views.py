@@ -7,6 +7,8 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from .models import Product, Sale
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
+from django.http import HttpResponse
 from django.shortcuts import render
 import datetime
 
@@ -133,3 +135,31 @@ def list_sales(request):
     }
 
     return render(request, template_name, context)
+
+
+@require_http_methods(['GET'])
+def search_product(request):
+    template_name = 'product/search_product.html'
+
+    q = request.GET.get('q')
+
+    if q:
+        product = Product.objects.filter(name__icontains=q)
+
+        context = {
+            'product': product, 
+            'query': q
+        }
+
+        return render(request, template_name, context)
+
+    else:
+        message = 'Busca vazia, informe o nome do produto'
+
+        context = {
+            'message': message
+        }
+
+
+    return render(request, 'product/erro_venda.html', context)
+

@@ -1,5 +1,12 @@
 {% extends 'index.html' %} {% block title %} Lista produtos {% endblock %} {% block main %}
 <div class="container">
+    <form type="get" action="{% url 'search_product' %}" accept-charset="utf-8">
+        <input type="search" id="q" name="q" placeholder="Nome produto..." />
+
+        <button style="margin-top: 7px; margin-bottom: 7px;" class="btn waves-effect blue darken-4" type="submit " name="action ">Buscar
+            <i style="color: white; " class="material-icons right ">search</i>
+        </button>
+    </form>
     <div class="row">
 
         {% for product in object_list %}

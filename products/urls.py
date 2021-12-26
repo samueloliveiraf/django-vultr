@@ -5,7 +5,8 @@ from .views import (
     UpadateViewProduct,
     DeleteViewProduct, 
     sale_product,
-    list_sales
+    list_sales,
+    search_product
 )
 
 from .pdfview import GeneratePDF
@@ -40,4 +41,8 @@ urlpatterns = [
         GeneratePDF.as_view(), 
         name="pdf"
     ),
+    path('seach/', 
+        search_product, 
+        name='search_product'
+    )
 ]

@@ -32,7 +32,7 @@ class Product(models.Model):
 
 class Sale(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=False,null=False)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, blank=False,null=False)
     time = models.DateTimeField(auto_now=True)
     payment = models.CharField(max_length=100)
     quantity = models.IntegerField()
