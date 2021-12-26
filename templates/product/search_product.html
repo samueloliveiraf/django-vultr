@@ -5,7 +5,7 @@
     <h5 style="text-align: center; color: rgb(67, 201, 123);">Busca encontrada</h5>
 
     <div class="row">
-        <br> {% for p in product %}
+        {% for p in product %}
         <div class="card">
             <img height="80" src="{{ p.imageURL }}" alt="">
             <br> Nome: {{ p.name }}
@@ -13,6 +13,7 @@
             <br> Quantidade: {{ p.quantity }}
             <br> Valor Total: R${{ p.total }}
         </div>
+        {% endfor %}
     </div>
 
 </div>
@@ -22,4 +23,4 @@
         text-align: center;
     }
 </style>
-{% endfor %} {% endblock %}
+{% endblock %}
