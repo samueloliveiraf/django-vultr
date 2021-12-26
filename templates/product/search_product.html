@@ -10,7 +10,43 @@
             <br> Preço: {{ p.price }}
             <br> Quantidade: {{ p.quantity }}
             <br> Valor Total: R${{ p.total }}
+
+            <br style="margin-top: 8px;">
+            <a href="{% url 'update_product' p.id %}">
+                <i class="small material-icons">create</i>
+            </a>
+
+            <a style="margin-left: 12px;" href="{% url 'delete_product' p.id %}">
+                <i class="small material-icons">delete</i>
+            </a>
+
+
+            {% if product.quantity == 0 %} {% else %}
+            <form action="{% url 'sale_product' p.id %}" method="POST"> {% csrf_token %}
+                <div>
+                    <input placeholder="Quantidade" type="number" required class="form-control" name="quantity" min="1" />
+                </div>
+
+                <div>
+                    <input placeholder="Nome Cliente" type="text" required class="form-control" name="name_client" />
+                </div>
+
+                <select required style="margin-top: 8px; margin-bottom: 8px;" name="payment" class="browser-default">
+              <option value="" disabled selected>Pagamento</option>
+              <option value="dinheiro">Dinheiro</option>
+              <option value="cartao-credito">Cartão de crédito</option>
+              <option value="cartao-debito">Cartão de Débito</option>
+            </select>
+
+                <button style=" margin-top: 12px; " class="btn waves-effect blue darken-4" type="submit " name="action ">Vender
+                <i style="color: white; " class="material-icons right ">local_atm</i>
+            </button>
+
+            </form>
+
+            {% endif %}
         </div>
+
         {% endfor %}
     </div>
 
