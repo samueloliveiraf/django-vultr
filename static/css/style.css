@@ -87,3 +87,7 @@ label {
 .size-icon {
     font-size: 42px;
 }
+
+button {
+    border-radius: 26px !important;
+}
