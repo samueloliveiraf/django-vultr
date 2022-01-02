@@ -13,7 +13,7 @@
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="O djangoapp-estoque é sistema destinado ao controle do seu estoque.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="Keywords" content="djangoapp-estoque, controle, estoque">
+    <meta name="Keywords" content="djangoapp-estoque, controle, estoque, produtos, sistema, multi-usuários">
 
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="website" />
@@ -44,16 +44,10 @@
                 <form class="col s12" method="POST"> {% csrf_token %} {{ form }}
 
                     <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Entrar
-                        <i style="color: white;" class="material-icons right">send</i>
+                        <i class="material-icons right">send</i>
                     </button>
 
                 </form>
-
-                <a style="margin-left: 11px;" href="{% url 'signup' %}">
-                    <button style="margin-top: 12px;" class="btn waves-effect indigo darken-4" type="submit" name="action">Cadastrar-se
-                        <i style="color: white;" class="material-icons right">person_add</i>
-                    </button>
-                </a>
 
             </div>
         </div>

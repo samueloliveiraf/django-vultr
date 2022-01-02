@@ -160,6 +160,5 @@ def search_product(request):
             'message': message
         }
 
-
     return render(request, 'product/erro_venda.html', context)
 

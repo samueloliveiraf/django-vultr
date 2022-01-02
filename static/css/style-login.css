@@ -50,3 +50,7 @@ input:focus {
 button {
     border-radius: 26px !important;
 }
+
+i {
+    color: white;
+}
