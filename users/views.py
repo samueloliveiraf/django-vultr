@@ -16,7 +16,7 @@ def signup(request):
             
             send_mail(
                 'Bem vindo ao Site Dev Samuel',
-                f'Seu usuário é ({username}), e a sua senha de acesso é ({raw_password})',
+                f'Seu usuário é {username}, e a sua senha de acesso é {raw_password}',
                 'samueldev2196@gmail.com',
                 [email],
                 fail_silently=False,

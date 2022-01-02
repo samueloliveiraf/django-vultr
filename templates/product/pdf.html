@@ -83,7 +83,6 @@
             <tr>
                 <th class="ttu" colspan="3">
                     {% for company in companys %}
-                    <img height="60" style="border-radius: 12px;" src="{{ company.image.url }}" alt="">
                     <b>{{ company.name }}</b> {% endfor %}
                 </th>
             </tr>
@@ -103,7 +102,7 @@
             {% for sale in sales %}
             <tr class="sup ttu p--0">
                 <td colspan="3">
-                    <b>Totais</b>
+                    <b>Informações da venda</b>
                 </td>
             </tr>
             <tr class="ttu">
@@ -115,7 +114,7 @@
                 <td align="right">{{ sale.payment }}</td>
             </tr>
             <tr class="ttu">
-                <td colspan="2">Valor Unitario:</td>
+                <td colspan="2">Valor unitário:</td>
                 <td align="right">{{ sale.product.price }}</td>
             </tr>
             <tr class="ttu">
@@ -131,18 +130,18 @@
                 <td align="right">{{ sale.total_sale }}</td>
             </tr>
             <tr class="ttu">
-                <td colspan="2">Data Compra:</td>
+                <td colspan="2">Data da compra:</td>
                 <td align="right">{{ sale.time }}</td>
             </tr>
             {% endfor %}
             <tr class="sup">
                 <td colspan="3" align="center">
-                    <b>Pedido:</b>
+                    <b>Muito obrigado por ser nosso cliente!</b>
                 </td>
             </tr>
             <tr class="sup">
                 <td colspan="3" align="center">
-                    Suporte contato <br> https://samueloliveiraf.github.io/site-devsamuel/
+                    Suporte contato <br> (83) 9 9812-3917
                 </td>
             </tr>
         </tfoot>
