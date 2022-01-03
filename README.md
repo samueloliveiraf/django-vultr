@@ -25,19 +25,19 @@ gunicorn --bind 0:8000 nameapp.wsgi
 
 sudo vim /etc/systemd/system/gunicorn.service
 
-[Unit]
-Description=gunicorn daemon
-After=network.target
+    [Unit]
+    Description=gunicorn daemon
+    After=network.target
 
-[Service]
-User=root
-Group=www-data
+    [Service]
+    User=root
+    Group=www-data
 
-WorkingDirectory=/root/django-vultr
-ExecStart=/root/django-vultr/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/root/django-vultr/django-vultr.sock app_web.wsgi:application
+    WorkingDirectory=/root/django-vultr
+    ExecStart=/root/django-vultr/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/root/django-vultr/django-vultr.sock app_web.wsgi:application
 
-[Install]
-WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 
 -----------------------------------
 
@@ -60,23 +60,23 @@ sudo vim /etc/ngnix/sites-avaible/nomedoprojeto
 
 -----------------------------------
 
-server {
-    listen 80;
-    server_name 155.138.230.147 djangoapp-estoque.online;
+    server {
 
-    location /static/ {
-        root /root/django-vultr;
-    }
+        listen 80;
+        server_name 155.138.230.147 djangoapp-estoque.online;
+        location /static/ {
+            root /root/django-vultr;
+        }
 
-    location /media/ {
-        root /root/django-vultr;
-    }
+        location /media/ {
+            root /root/django-vultr;
+        }
 
-    location / {
-        include proxy_params;
-        proxy_pass http://unix:/root/django-vultr/django-vultr.sock;
+        location / {
+            include proxy_params;
+            proxy_pass http://unix:/root/django-vultr/django-vultr.sock;
+        }
     }
-}
 
 -----------------------------------
 
