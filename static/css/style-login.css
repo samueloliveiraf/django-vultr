@@ -47,10 +47,6 @@ input:focus {
     box-shadow: 0 1px 0 0 rgb(67, 116, 161) !important
 }
 
-button {
-    border-radius: 26px !important;
-}
-
 i {
     color: white;
 }
