@@ -28,21 +28,25 @@
             <a id="logo-container" href="{% url 'home' %}" class="brand-logo">
                 <img style="margin-top: 3px;" width="150" height="57" src="/static/img/logo.png" alt="">
             </a>
+
             <ul class="right hide-on-med-and-down">
-                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'home' %}">Início</a></li>
                 <li><a href="{% url 'create_product' %}">Cadastrar Produto</a></li>
-                <li><a href="{% url 'list_products' %}">Produtos</a></li>
-                <li><a href="{% url 'list_sales' %}">Vendas</a></li>
+                <li><a href="{% url 'list_products' %}">Todos Produtos</a></li>
+                <li><a href="{% url 'product_lack' %}">Produtos em falta</a></li>
+                <li><a href="{% url 'list_sales' %}">Minhas Vendas</a></li>
                 <li><a href="{% url 'logout' %}">Sair</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
-                <li><a style="color: #2b4c92;" href="{% url 'home' %}">Inicio</a></li>
+                <li><a style="color: #2b4c92;" href="{% url 'home' %}">Início</a></li>
                 <li><a style="color: #2b4c92;" href="{% url 'create_product' %}">Cadastrar Produto</a></li>
-                <li><a style="color: #2b4c92;" href="{% url 'list_products' %}">Produtos</a></li>
-                <li><a style="color: #2b4c92;" href="{% url 'list_sales' %}">Vendas</a></li>
+                <li><a style="color: #2b4c92;" href="{% url 'list_products' %}">Todos os Produtos</a></li>
+                <li><a style="color: #2b4c92;" href="{% url 'product_lack' %}">Produtos em falta</a></li>
+                <li><a style="color: #2b4c92;" href="{% url 'list_sales' %}">Minhas Vendas</a></li>
                 <li><a style="color: #2b4c92;" href="{% url 'logout' %}">Sair</a></li>
             </ul>
+
             <a href="#" data-target="nav-mobile" class="sidenav-trigger">
                 <i style="color: white;" class="material-icons">storage</i>
             </a>

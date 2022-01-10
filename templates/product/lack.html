@@ -1,0 +1,31 @@
+{% extends 'index.html' %} {% block title %} Lista produtos {% endblock %} {% block main %}
+<div class="container">
+
+    <div class="row">
+
+        {% for product in products_lack %}
+        <div class="col s12">
+            <div class="card" style="text-align: center;">
+                <img height="80" src="{{product.imageURL}}" alt="">
+                <br> Nome: {{ product.name }}
+                <br> Preço: {{ product.price }}
+                <br> Quantidade: {{ product.quantity }}
+                <br> Valor Total: R${{ product.total }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script type="text/javascript " src="//code.jquery.com/jquery-2.1.4.js "></script>
+<style type="text/css "></style>
+<link rel="stylesheet " type="text/css " href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css ">
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js "></script>
+
+<style>
+    .card {
+        border-radius: 12px;
+    }
+</style>
+
+{% endblock %}

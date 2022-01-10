@@ -6,7 +6,8 @@ from .views import (
     DeleteViewProduct, 
     sale_product,
     list_sales,
-    search_product
+    search_product,
+    product_lack
 )
 
 from .pdfview import GeneratePDF
@@ -44,5 +45,9 @@ urlpatterns = [
     path('seach/', 
         search_product, 
         name='search_product'
+    ),
+    path('product-lack/', 
+        product_lack,
+        name='product_lack'
     )
 ]

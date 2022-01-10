@@ -6,9 +6,9 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 from .models import Product, Sale
+from django.db.models import F
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
-from django.http import HttpResponse
 from django.shortcuts import render
 import datetime
 
@@ -161,4 +161,19 @@ def search_product(request):
         }
 
     return render(request, 'product/erro_venda.html', context)
+
+
+@login_required(login_url='/accounts/login/')
+def product_lack(request):
+    product_all = Product.objects.all()
+    products_lack = product_all.filter(
+        user=request.user,
+        quantity__lte = F('product_min')
+    )
+
+    context = {
+        'products_lack': products_lack
+    }
+
+    return render(request, 'product/lack.html', context)
 
