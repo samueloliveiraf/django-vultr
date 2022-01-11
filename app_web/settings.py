@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
  
-ALLOWED_HOSTS = ['localhost', 'djangoapp-estoque.online', '45.77.219.182']
+ALLOWED_HOSTS = ['localhost', 'djangoapp-estoque.online', '216.155.135.193']
 
 
 # Application definition
