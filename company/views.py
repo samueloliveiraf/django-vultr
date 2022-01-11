@@ -1,4 +1,5 @@
 from .models import Company
+from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 
@@ -8,7 +9,8 @@ class CrieteViewCompany(CreateView):
     model = Company
     
     fields = [
-        'name'
+        'name',
+        'image'
     ]
     
     
@@ -24,10 +26,23 @@ class UpadateViewCompany(UpdateView):
     model = Company
     
     fields = [
-        'name'
+        'name', 
+        'image'
     ]
     
     template_name = 'company/create_company.html'
     
     
     success_url = reverse_lazy('home')
+
+
+
+def list_company(request):
+    company = Company.objects.filter(user=request.user)
+
+    context = {
+        'companys': company
+    }
+
+    return render(request, 'index.html', context)
+

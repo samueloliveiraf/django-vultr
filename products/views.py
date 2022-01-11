@@ -5,6 +5,8 @@ from django.views.generic import (
     UpdateView,
 )
 from django.urls import reverse_lazy
+
+from company.models import Company
 from .models import Product, Sale
 from django.db.models import F
 from django.contrib.auth.decorators import login_required
@@ -176,4 +178,3 @@ def product_lack(request):
     }
 
     return render(request, 'product/lack.html', context)
-

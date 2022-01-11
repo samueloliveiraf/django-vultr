@@ -57,7 +57,9 @@
         <div class="img">
             <div class="row">
                 <div class="col s12 m4">
-                    <img class="img-home" src="/static/img/home.png" alt="image-home" srcset="">
+                    {% if user.company %}
+                    <img style="border-radius: 50%;" class="img-home" src="{{ user.company.imageURL }}" alt="image-home" srcset=""> {% else %}
+                    <img class="img-home" src="/static/img/home.png" alt="image-home" srcset=""> {% endif %}
                 </div>
             </div>
         </div>
