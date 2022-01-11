@@ -45,6 +45,16 @@
                     </a>
                 </td>
             </tr>
+
+            <br style="margin-top: 8px;">
+            <a href="{% url 'update_product' product.id %}">
+                <i class="small material-icons">create</i>
+            </a>
+
+            <a style="margin-left: 12px;" href="{% url 'delete_product' product.id %}">
+                <i class="small material-icons">delete</i>
+            </a>
+
             {% endfor %}
         </tbody>
     </table>
