@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator
 
 class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name='Nome')
-    quantity = models.IntegerField(verbose_name='Quantidade do produto', default=0 ,validators=[MinValueValidator(0)])
+    quantity = models.IntegerField(verbose_name='Quantidade', default=0 ,validators=[MinValueValidator(0)])
     image = models.ImageField(verbose_name='Imagem')
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Preço')
     product_min = models.IntegerField(verbose_name='Quantidade minima', default=0 ,validators=[MinValueValidator(0)])
