@@ -1,6 +1,9 @@
 from pathlib import Path
 from decouple import config
 import os
+from prettyconf import Configuration
+
+config = Configuration()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,8 +18,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
  
-ALLOWED_HOSTS = ['localhost', 'djangoapp-estoque.online', '216.155.135.193']
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=config.list)
 
 # Application definition
 
@@ -32,11 +34,11 @@ DEFAULT_APPS = [
 THIRD_APPS = []
 
 PROJECT_APPS = [
-    'core.apps.CoreConfig',
-    'clients.apps.ClientsConfig',
-    'users.apps.UsersConfig',
-    'products.apps.ProductsConfig',
-    'company.apps.CompanyConfig'
+    'apps.core',
+    'apps.clients',
+    'apps.users',
+    'apps.products',
+    'apps.company'
 ]
 
 INSTALLED_APPS = PROJECT_APPS + THIRD_APPS + DEFAULT_APPS
@@ -149,8 +151,8 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'samueldev2196@gmail.com'
-EMAIL_HOST_PASSWORD = '159753got42'
-EMAIL_USE_TLS = True
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')

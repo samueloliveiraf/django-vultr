@@ -6,7 +6,7 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 
-from company.models import Company
+from apps.company.models import Company
 from .models import Product, Sale
 from django.db.models import F
 from django.contrib.auth.decorators import login_required

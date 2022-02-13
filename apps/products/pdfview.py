@@ -7,7 +7,7 @@ from xhtml2pdf import pisa
 from django.views.generic import View
 
 from .models import Sale
-from company.models import Company
+from apps.company.models import Company
 from datetime import datetime
 
 
