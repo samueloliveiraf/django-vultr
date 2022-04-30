@@ -132,8 +132,12 @@ def list_sales(request):
     else:
         sales = Sale.objects.filter(user=request.user)
 
+    
+    products = Product.objects.all()
+
     context = {
         'sales': sales,
+        'products': products
     }
 
     return render(request, template_name, context)
