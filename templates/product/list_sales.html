@@ -30,6 +30,7 @@
                 <th scope="col">Data</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Imprimir</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -44,17 +45,20 @@
                         <img width="72" height="60" class="image-icon" src="/static/img/print.png" alt="image-print">
                     </a>
                 </td>
+                <td>
+                    {% for product in products %}
+                    <a href="{% url 'update_product' product.id %}">
+                        <i class="small material-icons">create</i>
+                    </a>
+
+                    <a style="margin-left: 12px;" href="{% url 'delete_product' product.id %}">
+                        <i class="small material-icons">delete</i>
+                    </a>
+                    {% endfor %}
+                </td>
             </tr>
 
-            <br style="margin-top: 8px;"> {% for product in products %}
-            <a href="{% url 'update_product' product.id %}">
-                <i class="small material-icons">create</i>
-            </a>
-
-            <a style="margin-left: 12px;" href="{% url 'delete_product' product.id %}">
-                <i class="small material-icons">delete</i>
-            </a>
-            {% endfor %} {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
 </div>
