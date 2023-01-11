@@ -20,6 +20,10 @@ DEBUG = config('DEBUG')
  
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=config.list)
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.aplicacao-tech.com.br'
+]
+
 # Application definition
 
 DEFAULT_APPS = [
@@ -129,7 +133,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -151,8 +155,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-# EMAIL_HOST = config('EMAIL_HOST')
-# EMAIL_PORT = config('EMAIL_PORT')
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')

@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+   nginx:
+     container_name: nginx
+     restart: unless-stopped
+     build:
+       dockerfile: ./docker/nginx.dockerfile
+       context: .
+     ports:
+       - "80:80"
+       - "443:443"
+     networks:
+       - production-network
+     depends_on:
+       - "web_controle_estoque"
+
+   db_controle_estoque:
+     container_name: db_controle_estoque
+     image: postgres:12
+     environment:
+       - POSTGRES_PASSWORD=${DB_PASSWORD}
+     networks:
+       - production-network
+
+   web_controle_estoque:
+     container_name: web_controle_estoque
+     build:
+       dockerfile: ./docker/web_controle_estoque.dockerfile
+       context: .
+     ports:
+       - "8000:8000"
+     depends_on:
+       - db_controle_estoque
+     networks:
+       - production-network
+
+networks:
+  production-network:
+    driver: bridge
