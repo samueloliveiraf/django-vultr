@@ -2,7 +2,7 @@ version: '3'
 
 services:
    nginx:
-     container_name: nginx
+     container_name: nginx-controle
      restart: unless-stopped
      build:
        dockerfile: ./docker/nginx.dockerfile
