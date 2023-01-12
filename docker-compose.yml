@@ -29,7 +29,7 @@ services:
        dockerfile: ./docker/web_controle_estoque.dockerfile
        context: .
      ports:
-       - "8000:8000"
+       - "8001:8001"
      depends_on:
        - db_controle_estoque
      networks:
